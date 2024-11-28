@@ -1,4 +1,4 @@
-package com.example.prueballaves.modelos;
+/*package com.example.prueballaves.modelos;
 
 import com.example.prueballaves.llave.PolizaProveedorLlave;
 import jakarta.persistence.*;
@@ -41,3 +41,4 @@ public class PolizaProvedor {
         this.proveedor = proveedor;
     }
 }
+*/

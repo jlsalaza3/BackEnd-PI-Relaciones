@@ -1,4 +1,4 @@
-package com.example.prueballaves.llave;
+/*package com.example.prueballaves.llave;
 
 import java.io.Serializable;
 
@@ -30,3 +30,4 @@ public class PolizaProveedorLlave implements Serializable {
         this.proveedor = proveedor;
     }
 }
+*/
