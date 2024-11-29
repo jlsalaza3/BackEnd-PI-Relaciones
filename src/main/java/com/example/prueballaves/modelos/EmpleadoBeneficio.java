@@ -9,7 +9,6 @@ import java.time.LocalDate;
 @Entity
 @IdClass(EmpleadoBeneficioLlave.class)
 public class EmpleadoBeneficio {
-
     @Id
     @ManyToOne
     @JoinColumn(name = "id_empleado", referencedColumnName = "id")
@@ -20,21 +19,38 @@ public class EmpleadoBeneficio {
     @JoinColumn(name = "id_beneficio", referencedColumnName = "id")
     private Beneficio beneficio;
 
-    private LocalDate fechaSolicitud;
-    private String estadoSolicitud;
-    private String descripcionSolicitud;
 
+    private LocalDate fechaSolicitud;
+    private String estadoSolicitud="En Proceso";
+    private String descripcionSolicitud;
+    private String comentarioSolicitud;
 
     public EmpleadoBeneficio() {
     }
 
-
-    public EmpleadoBeneficio(Empleado empleado, Beneficio beneficio, LocalDate fechaSolicitud, String estadoSolicitud, String descripcionSolicitud) {
+    public EmpleadoBeneficio(Empleado empleado, Beneficio beneficio, LocalDate fechaSolicitud, String estadoSolicitud, String descripcionSolicitud, String comentarioSolicitud) {
         this.empleado = empleado;
         this.beneficio = beneficio;
         this.fechaSolicitud = fechaSolicitud;
         this.estadoSolicitud = estadoSolicitud;
         this.descripcionSolicitud = descripcionSolicitud;
+        this.comentarioSolicitud = comentarioSolicitud;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    public Beneficio getBeneficio() {
+        return beneficio;
+    }
+
+    public void setBeneficio(Beneficio beneficio) {
+        this.beneficio = beneficio;
     }
 
     public LocalDate getFechaSolicitud() {
@@ -61,19 +77,11 @@ public class EmpleadoBeneficio {
         this.descripcionSolicitud = descripcionSolicitud;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public String getComentarioSolicitud() {
+        return comentarioSolicitud;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
-    }
-
-    public Beneficio getBeneficio() {
-        return beneficio;
-    }
-
-    public void setBeneficio(Beneficio beneficio) {
-        this.beneficio = beneficio;
+    public void setComentarioSolicitud(String comentarioSolicitud) {
+        this.comentarioSolicitud = comentarioSolicitud;
     }
 }
