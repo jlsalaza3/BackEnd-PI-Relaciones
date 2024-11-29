@@ -9,12 +9,13 @@ import java.util.List;
 @Entity
 public class Proveedor {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String razonSocial;
     private String tipoIdentificacion;
-    private Integer numeroIdentificacion;
+    private Long numeroIdentificacion;
     private String correoProveedor;
-    private Integer telefonoProveedor;
+    private Long telefonoProveedor;
     private String direccionProveedor;
     private String ciudadProveedor;
     private String departamentoProveedor;
@@ -32,7 +33,7 @@ public class Proveedor {
     public Proveedor() {
     }
 
-    public Proveedor(Long id, String razonSocial, String tipoIdentificacion, Integer numeroIdentificacion, String correoProveedor, Integer telefonoProveedor, String direccionProveedor, String ciudadProveedor, String departamentoProveedor, String paisProveedor, List<Beneficio> beneficios, Poliza poliza) {
+    public Proveedor(Long id, String razonSocial, String tipoIdentificacion, Long numeroIdentificacion, String correoProveedor, Long telefonoProveedor, String direccionProveedor, String ciudadProveedor, String departamentoProveedor, String paisProveedor, List<Beneficio> beneficios, Poliza poliza) {
         this.id = id;
         this.razonSocial = razonSocial;
         this.tipoIdentificacion = tipoIdentificacion;
@@ -71,11 +72,11 @@ public class Proveedor {
         this.tipoIdentificacion = tipoIdentificacion;
     }
 
-    public Integer getNumeroIdentificacion() {
+    public Long getNumeroIdentificacion() {
         return numeroIdentificacion;
     }
 
-    public void setNumeroIdentificacion(Integer numeroIdentificacion) {
+    public void setNumeroIdentificacion(Long numeroIdentificacion) {
         this.numeroIdentificacion = numeroIdentificacion;
     }
 
@@ -87,11 +88,11 @@ public class Proveedor {
         this.correoProveedor = correoProveedor;
     }
 
-    public Integer getTelefonoProveedor() {
+    public Long getTelefonoProveedor() {
         return telefonoProveedor;
     }
 
-    public void setTelefonoProveedor(Integer telefonoProveedor) {
+    public void setTelefonoProveedor(Long telefonoProveedor) {
         this.telefonoProveedor = telefonoProveedor;
     }
 
