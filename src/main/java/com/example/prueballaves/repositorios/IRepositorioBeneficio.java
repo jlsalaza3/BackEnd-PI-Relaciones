@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface IRepositorioBeneficio extends JpaRepository<Beneficio,Long> {
 
-    @Query("SELECT b FROM Proveedor b WHERE b.poliza.id = :polizaId")
+    @Query("SELECT b FROM Beneficio b WHERE b.poliza.id = :polizaId")
     List<Beneficio> findBeneficioByPolizaId(@Param("polizaId") Long polizaId);
 }

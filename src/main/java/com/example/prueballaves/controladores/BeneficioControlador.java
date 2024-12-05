@@ -19,7 +19,7 @@ public class BeneficioControlador {
     @Autowired
     BeneficioServicios beneficioServicio;
 
-    @GetMapping("/{proveedorId}")
+    @GetMapping("/{polizaId}")
     public ResponseEntity<?> obtenerBenefico (@PathVariable Long polizaId) throws Exception {
         try {
             List<Beneficio> beneficios = beneficioServicio.obtenerBeneficiosPorPoliza(polizaId);
