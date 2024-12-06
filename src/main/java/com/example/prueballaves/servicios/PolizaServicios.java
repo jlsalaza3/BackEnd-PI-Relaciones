@@ -5,6 +5,8 @@ import com.example.prueballaves.repositorios.IRepositorioPoliza;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PolizaServicios {
 
@@ -17,5 +19,9 @@ public class PolizaServicios {
         }catch (Exception error){
             throw new Exception(error.getMessage());
         }
+    }
+
+    public List<Poliza> obtenerPoliza(){
+        return iRepositorioPoliza.findAll();
     }
 }
