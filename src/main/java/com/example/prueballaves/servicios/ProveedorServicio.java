@@ -16,4 +16,8 @@ public class ProveedorServicio {
     public List<Proveedor> obtenerProveedoresPorPoliza(Long polizaId){
         return iRepositorioProveedor.findProveedoresByPolizaId(polizaId);
     }
+
+    public List<Proveedor> obtenerProveedores(){
+        return iRepositorioProveedor.findAll();
+    }
 }

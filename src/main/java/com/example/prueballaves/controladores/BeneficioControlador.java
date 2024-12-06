@@ -5,24 +5,34 @@ import com.example.prueballaves.servicios.BeneficioServicios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/beneficios")
 public class BeneficioControlador {
 
     @Autowired
     BeneficioServicios beneficioServicio;
 
-    @GetMapping("/{polizaId}")
-    public ResponseEntity<?> obtenerBenefico (@PathVariable Long polizaId) throws Exception {
+    @PostMapping
+    public ResponseEntity<?> guardar(@RequestBody Beneficio datos){
+        try{
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(beneficioServicio.registrarBeneficio(datos));
+        }catch (Exception error){
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(error.getMessage());
+        }
+    }
+
+    @GetMapping
+    public ResponseEntity<?> obtenerBenefico () throws Exception {
         try {
-            List<Beneficio> beneficios = beneficioServicio.obtenerBeneficiosPorPoliza(polizaId);
+            List<Beneficio> beneficios = beneficioServicio.obtenerBeneficioPorProveedor();
             return ResponseEntity.ok(beneficios);
         } catch (Exception error) {
             return ResponseEntity

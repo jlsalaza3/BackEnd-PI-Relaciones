@@ -30,4 +30,17 @@ public class ProveedorControlador {
                     .body(error.getMessage());
         }
     }
+
+    @GetMapping
+    public ResponseEntity<?> obtenerProveedores () throws Exception{
+        try {
+
+            return ResponseEntity.ok(proveedorServicio.obtenerProveedores());
+        }catch (Exception error){
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(error.getMessage());
+        }
+    }
+
 }
